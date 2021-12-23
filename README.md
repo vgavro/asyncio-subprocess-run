@@ -17,7 +17,7 @@ from asyncio_subprocess_run import run
 
 
 async def get_uid():
-    return await int(
-        run(['id', '-u'], check=True, text=True, capture_output=True)
-    ).stdout.strip()
+    return int(
+        (await run(['id', '-u'], check=True, text=True, capture_output=True))
+        .stdout.strip())
 ```
